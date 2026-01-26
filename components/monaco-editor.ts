@@ -27,7 +27,7 @@ export default function MonacoEditor({
   }, [code, language]);
 
   return (
-    <div className="flex flex-col items-center flex-grow h-full">
+    <div className="flex flex-col items-center grow h-full">
       {!forPreview && (
         <EditorTitle
           language={language}

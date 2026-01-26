@@ -12,7 +12,7 @@ const Layout = ({ title, content, children }) => {
 
       <div className="flex flex-col w-full h-screen gap-0">
         <Header />
-        <main className="flex-grow">{children}</main>
+        <main className="grow">{children}</main>
       </div>
     </>
   );

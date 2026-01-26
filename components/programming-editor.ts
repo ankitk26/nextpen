@@ -10,7 +10,7 @@ const ProgrammingEditor = () => {
 
   return (
     <div className="flex flex-col w-4/5 gap-10 p-4 mx-auto mt-3">
-      <section className="flex-grow" style={{ height: "80vh" }}>
+      <section className="grow" style={{ height: "80vh" }}>
         <Editor language={language} code={code} setCode={setCode} />
         {/* <Editor language={language} code={code} setCode={setCode} /> */}
       </section>
