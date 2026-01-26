@@ -48,7 +48,7 @@ const Editor = ({
   };
 
   return (
-    <div className="flex flex-col items-center flex-grow h-full">
+    <div className="flex flex-col items-center grow h-full">
       {/* Editor title */}
       {!forPreview && (
         <EditorTitle

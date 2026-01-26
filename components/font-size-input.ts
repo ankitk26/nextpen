@@ -1,5 +1,4 @@
 import { useEditor } from "../context/AppContext";
-import styles from "../styles/FontSizeInput.module.css";
 
 const FontSizeInput = () => {
   const { fontSize, setFontSize } = useEditor();
@@ -33,7 +32,7 @@ const FontSizeInput = () => {
       {/* Display font size number */}
       <input
         type="number"
-        className={`w-full text-center text-white outline-none bg-paper-secondary text-md focus:outline-none ${styles.font_size_input}`}
+        className={`w-full text-center text-white outline-none bg-paper-secondary text-md focus:outline-none`}
         value={parseInt(fontSize)}
         onChange={fontSizeChange}
       />
