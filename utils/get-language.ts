@@ -1,5 +1,5 @@
 // Returns language and language version
-module.exports.getLanguage = (language: string) => {
+export const getLanguage = (language: string) => {
 	switch (language) {
 		case "cpp":
 			return ["cpp14", "3"];
@@ -10,6 +10,6 @@ module.exports.getLanguage = (language: string) => {
 		case "python":
 			return ["python3", "3"];
 		default:
-			return;
+			return [];
 	}
 };
