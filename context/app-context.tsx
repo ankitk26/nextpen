@@ -1,67 +1,88 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import cookieCutter from "cookie-cutter";
+import { createContext, useContext, useState } from "react";
 
-export const AppContext = createContext();
+type AppState = {
+	theme: string;
+	setTheme: React.Dispatch<React.SetStateAction<string>>;
+	fontFamily: string;
+	setFontFamily: React.Dispatch<React.SetStateAction<string>>;
+	fontSize: number;
+	setFontSize: React.Dispatch<React.SetStateAction<number>>;
+	wrap: boolean;
+	setWrap: React.Dispatch<React.SetStateAction<boolean>>;
+	showLineNumbers: boolean;
+	setShowLineNumbers: React.Dispatch<React.SetStateAction<boolean>>;
+	alignment: string;
+	setAlignment: React.Dispatch<React.SetStateAction<string>>;
+	language: string;
+	setLanguage: React.Dispatch<React.SetStateAction<string>>;
+	code: string;
+	setCode: React.Dispatch<React.SetStateAction<string>>;
+	stdIn: string;
+	setStdIn: React.Dispatch<React.SetStateAction<string>>;
+	output: string;
+	setOutput: React.Dispatch<React.SetStateAction<string>>;
+	isSubmitting: boolean;
+	setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
+	headTags: string;
+	setHeadTags: React.Dispatch<React.SetStateAction<string>>;
+	cssFramework: string;
+	setCssFramework: React.Dispatch<React.SetStateAction<string>>;
+};
 
-export const AppProvider = ({ children }) => {
-  const [theme, setTheme] = useState("tomorrow_night_eighties");
-  const [fontFamily, setFontFamily] = useState("Consolas");
-  const [fontSize, setFontSize] = useState(15);
-  const [wrap, setWrap] = useState(true);
-  const [showLineNumbers, setShowLineNumbers] = useState(true);
-  const [alignment, setAlignment] = useState("right");
-  const [language, setLanguage] = useState("cpp");
+export const AppContext = createContext<AppState>({} as AppState);
 
-  const [code, setCode] = useState("");
-  const [stdIn, setStdIn] = useState("");
-  const [output, setOutput] = useState("");
+export const AppProvider = ({ children }: { children: React.ReactNode }) => {
+	const [theme, setTheme] = useState("tomorrow_night_eighties");
+	const [fontFamily, setFontFamily] = useState("Consolas");
+	const [fontSize, setFontSize] = useState(15);
+	const [wrap, setWrap] = useState(true);
+	const [showLineNumbers, setShowLineNumbers] = useState(true);
+	const [alignment, setAlignment] = useState("right");
+	const [language, setLanguage] = useState("cpp");
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+	const [code, setCode] = useState("");
+	const [stdIn, setStdIn] = useState("");
+	const [output, setOutput] = useState("");
 
-  const [headTags, setHeadTags] = useState("");
-  const [cssFramework, setCssFramework] = useState("none");
+	const [isSubmitting, setIsSubmitting] = useState(false);
 
-  useEffect(() => {
-    const lang = cookieCutter.get("editor_lang");
-    if (lang) {
-      setLanguage(lang);
-    }
-  }, [language]);
+	const [headTags, setHeadTags] = useState("");
+	const [cssFramework, setCssFramework] = useState("none");
 
-  return (
-    <AppContext.Provider
-      value={{
-        theme,
-        setTheme,
-        fontFamily,
-        setFontFamily,
-        fontSize,
-        setFontSize,
-        wrap,
-        setWrap,
-        showLineNumbers,
-        setShowLineNumbers,
-        alignment,
-        setAlignment,
-        language,
-        setLanguage,
-        code,
-        setCode,
-        stdIn,
-        setStdIn,
-        output,
-        setOutput,
-        isSubmitting,
-        setIsSubmitting,
-        headTags,
-        setHeadTags,
-        cssFramework,
-        setCssFramework,
-      }}
-    >
-      {children}
-    </AppContext.Provider>
-  );
+	return (
+		<AppContext.Provider
+			value={{
+				theme,
+				setTheme,
+				fontFamily,
+				setFontFamily,
+				fontSize,
+				setFontSize,
+				wrap,
+				setWrap,
+				showLineNumbers,
+				setShowLineNumbers,
+				alignment,
+				setAlignment,
+				language,
+				setLanguage,
+				code,
+				setCode,
+				stdIn,
+				setStdIn,
+				output,
+				setOutput,
+				isSubmitting,
+				setIsSubmitting,
+				headTags,
+				setHeadTags,
+				cssFramework,
+				setCssFramework,
+			}}
+		>
+			{children}
+		</AppContext.Provider>
+	);
 };
 
 export const useEditor = () => useContext(AppContext);

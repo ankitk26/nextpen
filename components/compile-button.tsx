@@ -1,41 +1,45 @@
 import { Button } from "@material-ui/core";
-import { useEditor } from "../context/AppContext";
+import { useEditor } from "../context/app-context";
 
 const CompileButton = () => {
-  const { language, code, stdIn, setOutput, isSubmitting, setIsSubmitting } =
-    useEditor();
+	const { language, code, stdIn, setOutput, isSubmitting, setIsSubmitting } =
+		useEditor();
 
-  // Submit code to server
-  const handleSubmission = async () => {
-    setIsSubmitting(true);
+	// Submit code to server
+	const handleSubmission = async () => {
+		setIsSubmitting(true);
 
-    const body = JSON.stringify({
-      script: code,
-      stdin: stdIn,
-      language,
-    });
+		const body = JSON.stringify({
+			script: code,
+			stdin: stdIn,
+			language,
+		});
 
-    const res = await fetch("/api/submission", {
-      method: "post",
-      body,
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
+		const res = await fetch("/api/submission", {
+			method: "post",
+			body,
+			headers: {
+				"Content-type": "application/json",
+			},
+		});
 
-    const data = await res.json();
-    setOutput(data);
+		const data = await res.json();
+		setOutput(data);
 
-    setIsSubmitting(false);
-  };
+		setIsSubmitting(false);
+	};
 
-  return (
-    <section>
-      <Button variant="contained" color="primary" onClick={handleSubmission}>
-        {isSubmitting ? "Compiling..." : "Run"}
-      </Button>
-    </section>
-  );
+	return (
+		<section>
+			<Button
+				variant="contained"
+				color="primary"
+				onClick={handleSubmission}
+			>
+				{isSubmitting ? "Compiling..." : "Run"}
+			</Button>
+		</section>
+	);
 };
 
 export default CompileButton;
