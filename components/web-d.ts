@@ -7,7 +7,7 @@ import { getCssFrameworkLink } from "../utils/getCssFrameworkLink";
 // import MonacoEditor from "./MonacoEditor";
 // import Editor from "./Editor";
 
-const Editor = dynamic(() => import("../components/Editor"), { ssr: false });
+const Editor = dynamic(() => import("./Editor"), { ssr: false });
 
 const useStyles = makeStyles(() => ({
   rightAlign: {
