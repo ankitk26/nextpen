@@ -1,9 +1,11 @@
+"use client";
+
 import dynamic from "next/dynamic";
-import { useEditor } from "../context/app-context";
+import { useEditor } from "../context/app-provider";
 import CompileButton from "./compile-button";
 // import MonacoEditor from "./MonacoEditor";
 
-const Editor = dynamic(() => import("./Editor"), { ssr: false });
+const Editor = dynamic(() => import("./editor"), { ssr: false });
 
 const ProgrammingEditor = () => {
 	const { code, setCode, stdIn, setStdIn, output, language } = useEditor();
