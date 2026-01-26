@@ -1,65 +1,78 @@
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { useEffect, useRef, useState } from "react";
-import DropdownMenu from "./DropdownMenu";
+import DropdownMenu from "./dropdown-menu";
 
-const Dropdown = ({ data, value, handler }) => {
-  const [isOpen, setIsOpen] = useState(false);
+type Props = {
+	data: {
+		value: string;
+		label: string;
+	}[];
+	value: string;
+	handler: React.Dispatch<React.SetStateAction<string>>;
+};
 
-  const container = useRef(null);
+const Dropdown = ({ data, value, handler }: Props) => {
+	const [isOpen, setIsOpen] = useState(false);
 
-  // Close dropdown when clicked outside the dropdown
-  useEffect(() => {
-    const handleOutsideClick = (e) => {
-      if (container.current) {
-        if (!container.current.contains(e.target)) {
-          if (!isOpen) return;
-          setIsOpen(false);
-        }
-      }
-    };
+	const container = useRef<HTMLDivElement>(null);
 
-    window.addEventListener("click", handleOutsideClick);
-    return () => window.removeEventListener("click", handleOutsideClick);
-  }, [isOpen, container]);
+	// Close dropdown when clicked outside the dropdown
+	useEffect(() => {
+		const handleOutsideClick = (e: any) => {
+			if (container.current) {
+				if (!container.current.contains(e.target)) {
+					if (!isOpen) return;
+					setIsOpen(false);
+				}
+			}
+		};
 
-  useEffect(() => {
-    const handleEscape = (e) => {
-      if (!isOpen) return;
+		window.addEventListener("click", handleOutsideClick);
+		return () => window.removeEventListener("click", handleOutsideClick);
+	}, [isOpen, container]);
 
-      if (e.key === "Escape") {
-        setIsOpen(false);
-      }
-    };
+	useEffect(() => {
+		const handleEscape = (e: any) => {
+			if (!isOpen) return;
 
-    document.addEventListener("keyup", handleEscape);
-    return () => document.removeEventListener("keyup", handleEscape);
-  }, [isOpen]);
+			if (e.key === "Escape") {
+				setIsOpen(false);
+			}
+		};
 
-  const handleOpen = () => {
-    setIsOpen((prev) => !prev);
-  };
+		document.addEventListener("keyup", handleEscape);
+		return () => document.removeEventListener("keyup", handleEscape);
+	}, [isOpen]);
 
-  const handleChange = (value) => {
-    handler(value);
-    setIsOpen(false);
-  };
+	const handleOpen = () => {
+		setIsOpen((prev) => !prev);
+	};
 
-  const getValue = () => value.split("_").join(" ");
+	const handleChange = (value: string) => {
+		handler(value);
+		setIsOpen(false);
+	};
 
-  return (
-    <div ref={container} className="relative inline-block">
-      <button
-        className="flex items-center justify-between w-full px-4 py-2 text-sm text-white rounded-sm focus:outline-none bg-paper-secondary"
-        type="button"
-        onClick={handleOpen}
-      >
-        <span className="mr-1 text-sm capitalize">{getValue()}</span>
-        <ExpandMoreIcon />
-      </button>
+	const getValue = () => value.split("_").join(" ");
 
-      <DropdownMenu data={data} handleChange={handleChange} isOpen={isOpen} />
-    </div>
-  );
+	return (
+		<div ref={container} className="relative inline-block">
+			<button
+				className="flex items-center justify-between w-full px-4 py-2 text-sm text-white rounded-sm focus:outline-none bg-paper-secondary"
+				type="button"
+				onClick={handleOpen}
+			>
+				<span className="mr-1 text-sm capitalize">{getValue()}</span>
+				<ExpandMoreIcon />
+			</button>
+
+			<DropdownMenu
+				data={data}
+				handleChange={handleChange}
+				isOpen={isOpen}
+			/>
+		</div>
+	);
 };
 
 export default Dropdown;

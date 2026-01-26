@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
-import { useEditor } from "../context/AppContext";
-import CompileButton from "./CompileButton";
+import { useEditor } from "../context/app-context";
+import CompileButton from "./compile-button";
 // import MonacoEditor from "./MonacoEditor";
 
 const Editor = dynamic(() => import("./Editor"), { ssr: false });
@@ -28,8 +28,8 @@ const ProgrammingEditor = () => {
 						name="input"
 						id="input"
 						className="w-full p-2 text-[14px] font-mono border border-borderPrimary bg-background resize-none focus:outline-none  text-white"
-						cols="30"
-						rows="5"
+						cols={30}
+						rows={5}
 						value={stdIn}
 						onChange={(e) => setStdIn(e.target.value)}
 						spellCheck={false}
@@ -45,11 +45,13 @@ const ProgrammingEditor = () => {
 							<div className="flex items-center gap-5 mt-2 text-sm">
 								<span>
 									<span className="text-white">Time</span>{" "}
-									{output.cpuTime} sec
+									{30} sec
+									{/*{output.cpuTime} sec*/}
 								</span>
 								<span>
 									<span className="text-white">Mem</span>{" "}
-									{output.memory} kB
+									{100} kB
+									{/*{output.memory} kB*/}
 								</span>
 							</div>
 						</div>
@@ -57,9 +59,10 @@ const ProgrammingEditor = () => {
 							name="output"
 							id="output"
 							className="w-full p-2 text-[14px] font-mono border border-borderPrimary bg-background resize-none focus:outline-none text-white"
-							cols="30"
-							rows="8"
-							value={output.output}
+							cols={30}
+							rows={8}
+							// value={output.output}
+							value={""}
 							readOnly
 							spellCheck={false}
 						/>
