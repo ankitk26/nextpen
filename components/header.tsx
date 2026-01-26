@@ -1,9 +1,11 @@
-import GitHubIcon from "@material-ui/icons/GitHub";
+"use client";
+
+// import GitHubIcon from "@material-ui/icons/GitHub";
 import Link from "next/link";
 import LanguageMenu from "../components/language-menu";
 import OrientationMenu from "../components/orientation-menu";
 import SettingsModal from "./settings-modal";
-import { useEditor } from "../context/app-context";
+import { useEditor } from "../context/app-provider";
 
 const Header = () => {
 	const { language } = useEditor();
@@ -11,12 +13,11 @@ const Header = () => {
 	return (
 		<nav className="flex items-center justify-between px-16 py-3 shadow-md bg-paper">
 			{/* Logo */}
-			<Link href="/">
-				<a className="flex items-center gap-3 pointer">
-					<h1 className="text-2xl font-bold tracking-wider text-white">
-						NextPen
-					</h1>
-				</a>
+			<Link
+				href="/"
+				className="flex text-2xl font-bold tracking-wider text-white items-center gap-3 pointer"
+			>
+				NextPen
 			</Link>
 
 			{/* Navigation buttons */}
@@ -30,12 +31,12 @@ const Header = () => {
 				{/* Opens settings modal */}
 				<SettingsModal />
 
-				<a
+				{/*<a
 					href="https://github.com/ankitk26/NextPen"
 					className="flex items-center gap-2 px-4 py-2 rounded-md justify-evenly hover:text-textSecondary focus:outline-none"
 				>
 					<GitHubIcon />
-				</a>
+				</a>*/}
 			</div>
 		</nav>
 	);

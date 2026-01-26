@@ -1,6 +1,8 @@
+"use client";
+
 import ProgrammingEditor from "../components/programming-editor";
 import WebD from "../components/web-d";
-import { useEditor } from "../context/app-context";
+import { useEditor } from "../context/app-provider";
 
 export default function Page() {
 	const { language } = useEditor();

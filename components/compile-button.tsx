@@ -1,5 +1,4 @@
-import { Button } from "@material-ui/core";
-import { useEditor } from "../context/app-context";
+import { useEditor } from "../context/app-provider";
 
 const CompileButton = () => {
 	const { language, code, stdIn, setOutput, isSubmitting, setIsSubmitting } =
@@ -31,13 +30,13 @@ const CompileButton = () => {
 
 	return (
 		<section>
-			<Button
-				variant="contained"
-				color="primary"
+			<button
+				// variant="contained"
+				// color="primary"
 				onClick={handleSubmission}
 			>
 				{isSubmitting ? "Compiling..." : "Run"}
-			</Button>
+			</button>
 		</section>
 	);
 };

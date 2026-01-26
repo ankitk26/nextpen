@@ -1,12 +1,14 @@
+"use client";
+
 import { makeStyles } from "@material-ui/core";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import { useEditor } from "../context/app-context";
+import { useEditor } from "../context/app-provider";
 import { getCssFrameworkLink } from "../utils/get-css-framework-link";
 // import MonacoEditor from "./MonacoEditor";
 // import Editor from "./Editor";
 
-const Editor = dynamic(() => import("./Editor"), { ssr: false });
+const Editor = dynamic(() => import("./editor"), { ssr: false });
 
 const useStyles = makeStyles(() => ({
 	rightAlign: {

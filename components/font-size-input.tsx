@@ -1,4 +1,4 @@
-import { useEditor } from "../context/app-context";
+import { useEditor } from "../context/app-provider";
 
 const FontSizeInput = () => {
 	const { fontSize, setFontSize } = useEditor();
