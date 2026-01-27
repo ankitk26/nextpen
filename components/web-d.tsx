@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { useEditor } from "./app-provider";
-import { getCssFrameworkLink } from "../lib/get-css-framework-link";
+import { getCssFrameworkLink } from "@/lib/get-css-framework-link";
 // import MonacoEditor from "./MonacoEditor";
 // import Editor from "./editor";
 

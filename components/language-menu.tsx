@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { languages } from "../lib/constants";
+import CodeIcon from "@material-ui/icons/Code";
+import { languages } from "@/lib/constants";
 import { useEditor } from "./app-provider";
 import DropdownMenu from "./dropdown-menu";
-import CodeIcon from "@material-ui/icons/Code";
 
 const LanguageMenu = () => {
 	const { setLanguage } = useEditor();
