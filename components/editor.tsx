@@ -77,6 +77,7 @@ export default function Editor({
 					autoScrollEditorIntoView: true,
 					showLineNumbers,
 					fixedWidthGutter: true,
+					showPrintMargin: false,
 				}}
 			/>
 		</div>
