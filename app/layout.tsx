@@ -1,8 +1,8 @@
-import { Metadata } from "next";
-import "./app.css";
 import { AppProvider } from "@/components/app-provider";
 import Header from "@/components/header";
+import { Metadata } from "next";
 import { Geist_Mono } from "next/font/google";
+import "./app.css";
 
 const geistMono = Geist_Mono({
 	variable: "--font-mono",
@@ -19,9 +19,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 		<html lang="en" className={geistMono.className}>
 			<body className="antialiased">
 				<AppProvider>
-					<div className="flex w-full flex-col space-y-4">
+					<div className="flex w-full flex-col">
 						<Header />
-						<main className="grow w-9/10 mx-auto">{children}</main>
+						<main className="grow my-4 w-9/10 mx-auto">
+							{children}
+						</main>
 					</div>
 				</AppProvider>
 			</body>
