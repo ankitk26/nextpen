@@ -1,9 +1,7 @@
 import { cssPreview, htmlPreview, jsPreview } from "@/lib/constants";
 import { useState } from "react";
+import Editor from "./editor";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
-import dynamic from "next/dynamic";
-
-const Editor = dynamic(() => import("../components/editor"), { ssr: false });
 
 export default function Preview() {
 	const [html, setHtml] = useState(htmlPreview);
@@ -12,13 +10,13 @@ export default function Preview() {
 
 	return (
 		<div className="w-full h-full">
-			<Tabs defaultValue="html" className="w-100">
+			<Tabs defaultValue="html" className="w-full h-full flex flex-col">
 				<TabsList className="w-full">
 					<TabsTrigger value="html">HTML</TabsTrigger>
 					<TabsTrigger value="css">CSS</TabsTrigger>
 					<TabsTrigger value="js">JavaScript</TabsTrigger>
 				</TabsList>
-				<TabsContent value="html">
+				<TabsContent value="html" className="w-full flex-1 mt-2">
 					<div className="w-full h-full">
 						<Editor
 							language="html"
@@ -28,7 +26,7 @@ export default function Preview() {
 						/>
 					</div>
 				</TabsContent>
-				<TabsContent value="css">
+				<TabsContent value="css" className="w-full flex-1 mt-2">
 					<div className="w-full h-full">
 						<Editor
 							language="css"
@@ -38,7 +36,7 @@ export default function Preview() {
 						/>
 					</div>
 				</TabsContent>
-				<TabsContent value="js">
+				<TabsContent value="js" className="w-full flex-1 mt-2">
 					<div className="w-full h-full">
 						<Editor
 							language="javascript"

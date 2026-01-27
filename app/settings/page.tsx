@@ -27,12 +27,14 @@ export default function Settings() {
 	} = useEditor();
 
 	return (
-		<div className="grid w-full h-full grid-cols-2">
+		<div className="grid grid-cols-1 lg:grid-cols-2 w-full h-full gap-6">
 			{/* Preview Section */}
-			<Preview />
+			<div className="h-full">
+				<Preview />
+			</div>
 
 			{/* Settings menu */}
-			<div className="flex flex-col w-full space-y-4">
+			<div className="flex flex-col w-full space-y-4 overflow-y-auto">
 				<h1 className="text-lg">Settings</h1>
 
 				<div className="space-y-1 w-full">
