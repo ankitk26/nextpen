@@ -1,3 +1,5 @@
+"use client";
+
 import { htmlPreview, cssPreview, jsPreview } from "@/lib/constants";
 import { AppBar, makeStyles, Tab, Tabs } from "@material-ui/core";
 import dynamic from "next/dynamic";

@@ -100,13 +100,12 @@ export default function Modal() {
 												<h3 className="text-lg">
 													Editor preferences
 												</h3>
-												<Link href="/settings">
-													<a
-														className="text-sm hover:underline text-textSecondary"
-														onClick={closeModal}
-													>
-														Change editor settings
-													</a>
+												<Link
+													href="/settings"
+													className="text-sm hover:underline text-textSecondary"
+													onClick={closeModal}
+												>
+													Change editor settings
 												</Link>
 											</div>
 										)}

@@ -1,3 +1,5 @@
+"use client";
+
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { useEffect, useRef, useState } from "react";
 import DropdownMenu from "./dropdown-menu";

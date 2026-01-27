@@ -1,11 +1,8 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { useEditor } from "./app-provider";
 import CompileButton from "./compile-button";
-// import MonacoEditor from "./MonacoEditor";
-
-const Editor = dynamic(() => import("./editor"), { ssr: false });
+import Editor from "./editor";
 
 const ProgrammingEditor = () => {
 	const { code, setCode, stdIn, setStdIn, output, language } = useEditor();
@@ -14,7 +11,6 @@ const ProgrammingEditor = () => {
 		<div className="flex flex-col w-4/5 gap-10 p-4 mx-auto mt-3">
 			<section className="grow" style={{ height: "80vh" }}>
 				<Editor language={language} code={code} setCode={setCode} />
-				{/* <Editor language={language} code={code} setCode={setCode} /> */}
 			</section>
 
 			<CompileButton />
