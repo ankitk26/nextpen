@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect } from "react";
 import AceEditor from "react-ace";
 import { useEditor } from "./app-provider";
@@ -45,19 +43,6 @@ export default function Editor({
 }: Props) {
 	const { theme, fontFamily, fontSize, wrap, showLineNumbers } = useEditor();
 
-	// Save code in localStorage (only for webd)
-	useEffect(() => {
-		if (!forPreview) {
-			localStorage.setItem(language, code);
-		}
-
-		// eslint-disable-next-line
-	}, [code, language]);
-
-	const onChange = (newValue: string) => {
-		setCode(newValue);
-	};
-
 	return (
 		<div className="flex flex-col items-center grow h-full">
 			{/* Editor title */}
@@ -77,7 +62,7 @@ export default function Editor({
 				theme={theme}
 				fontSize={fontSize}
 				value={code}
-				onChange={onChange}
+				onChange={(value) => setCode(value)}
 				name={`${language}_editor`}
 				style={{
 					width: "100%",

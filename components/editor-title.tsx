@@ -1,6 +1,5 @@
-import AddIcon from "@material-ui/icons/Add";
-import RemoveIcon from "@material-ui/icons/Remove";
 import { useEditor } from "./app-provider";
+import { IconRowInsertBottom, IconRowRemove } from "@tabler/icons-react";
 
 type Props = {
 	language: string;
@@ -18,10 +17,10 @@ const EditorTitle = ({ language, editorOpen, setEditorOpen }: Props) => {
 	};
 
 	return (
-		<header className="flex items-center justify-between w-full px-4 py-2 bg-paper-secondary">
+		<div className="flex items-center justify-between w-full px-4 py-2">
 			{/* Adjust title according to alignment and language */}
 			<h2
-				className={`text-white uppercase ${
+				className={`uppercase ${
 					alignment === "bottom" ? "text-left" : ""
 				} `}
 			>
@@ -36,14 +35,10 @@ const EditorTitle = ({ language, editorOpen, setEditorOpen }: Props) => {
 					className="flex items-center justify-center bg-transparent border-0 pointer focus:outline-none"
 					onClick={() => toggleEditor()}
 				>
-					{editorOpen ? (
-						<RemoveIcon className="text-gray-200" />
-					) : (
-						<AddIcon className="text-gray-200" />
-					)}
+					{editorOpen ? <IconRowRemove /> : <IconRowInsertBottom />}
 				</button>
 			)}
-		</header>
+		</div>
 	);
 };
 
