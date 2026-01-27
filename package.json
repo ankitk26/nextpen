@@ -11,7 +11,7 @@
 		"@base-ui/react": "^1.1.0",
 		"@material-ui/core": "^4.12.4",
 		"@material-ui/icons": "^4.11.3",
-		"@tabler/icons": "^3.36.1",
+		"@tabler/icons-react": "^3.36.1",
 		"@tailwindcss/postcss": "^4.1.18",
 		"axios": "^1.13.3",
 		"class-variance-authority": "^0.7.1",
