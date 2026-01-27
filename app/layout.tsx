@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import Header from "../components/header";
-import { AppProvider } from "../components/app-provider";
 import "./app.css";
+import { AppProvider } from "@/components/app-provider";
+import Header from "@/components/header";
 
 export const metadata: Metadata = {
 	title: "Home",

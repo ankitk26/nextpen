@@ -1,7 +1,7 @@
+import { htmlPreview, cssPreview, jsPreview } from "@/lib/constants";
 import { AppBar, makeStyles, Tab, Tabs } from "@material-ui/core";
 import dynamic from "next/dynamic";
 import { useState } from "react";
-import { cssPreview, htmlPreview, jsPreview } from "../constants/constants";
 // import { useEditor } from "../context/app-context";
 
 const Editor = dynamic(() => import("../components/editor"), { ssr: false });
