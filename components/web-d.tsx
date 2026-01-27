@@ -37,24 +37,16 @@ const WebD = () => {
 		return () => clearTimeout(timeout);
 	}, [html, css, js]);
 
-	// const container = (alignment: string) => {
-	// 	if (alignment === "right") {
-	// 		return classes.rightAlign;
-	// 	}
-	// 	if (alignment === "left") {
-	// 		return classes.leftAlign;
-	// 	}
-	// };
-
 	return (
-		<div className="h-screen w-screen flex space-x-4">
+		<div className="h-[calc(100vh-5rem)] w-full flex space-x-4 overflow-hidden">
 			{/* Editors section - always on left */}
-			<div className="flex-1 flex flex-col">
-				{/* Header with layout controls */}
-
+			<div className="flex-1 flex flex-col min-w-0">
 				{/* Code editor tabs */}
-				<Tabs defaultValue="html" className="flex-1 flex flex-col">
-					<TabsList className="h-auto p-1 w-full">
+				<Tabs
+					defaultValue="html"
+					className="flex-1 flex flex-col min-w-0"
+				>
+					<TabsList className="h-auto p-1 w-full shrink-0">
 						<TabsTrigger value="html">
 							<IconCode className="size-3.5" />
 							HTML
@@ -69,15 +61,21 @@ const WebD = () => {
 						</TabsTrigger>
 					</TabsList>
 
-					<div className="flex-1 min-h-0">
-						<TabsContent value="html" className="h-full m-0 p-0">
+					<div className="flex-1 min-h-0 overflow-hidden">
+						<TabsContent
+							value="html"
+							className="h-full m-0 p-0 overflow-hidden"
+						>
 							<Editor
 								language="html"
 								code={html}
 								setCode={setHtml}
 							/>
 						</TabsContent>
-						<TabsContent value="css" className="h-full m-0 p-0">
+						<TabsContent
+							value="css"
+							className="h-full m-0 p-0 overflow-hidden"
+						>
 							<Editor
 								language="css"
 								code={css}
@@ -86,7 +84,7 @@ const WebD = () => {
 						</TabsContent>
 						<TabsContent
 							value="javascript"
-							className="h-full m-0 p-0"
+							className="h-full m-0 p-0 overflow-hidden"
 						>
 							<Editor
 								language="javascript"
@@ -99,16 +97,16 @@ const WebD = () => {
 			</div>
 
 			{/* Preview section - always on right */}
-			<div className="flex-1 flex flex-col bg-background">
-				<div className="flex items-center gap-2 px-4 py-3 bg-muted border-b border-border">
+			<div className="flex-1 flex flex-col bg-background min-w-0">
+				<div className="flex items-center gap-2 px-4 py-3 bg-muted border-b border-border shrink-0">
 					<IconEye className="size-4" />
 					<span className="text-sm font-medium">Preview</span>
 				</div>
-				<div className="flex-1 min-h-0">
+				<div className="flex-1 min-h-0 overflow-hidden">
 					<iframe
 						title="output"
 						sandbox="allow-scripts"
-						className="h-full w-full"
+						className="h-full w-full border-0"
 						srcDoc={srcDoc}
 					/>
 				</div>
