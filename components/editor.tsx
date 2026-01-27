@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect } from "react";
 import AceEditor from "react-ace";
 import { useEditor } from "./app-provider";

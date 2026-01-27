@@ -1,3 +1,5 @@
+"use client";
+
 import { useEditor } from "@/components/app-provider";
 import Dropdown from "@/components/dropdown";
 import FontSizeInput from "@/components/font-size-input";
