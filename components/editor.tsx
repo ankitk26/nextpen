@@ -1,24 +1,22 @@
-import { useEffect } from "react";
 import AceEditor from "react-ace";
 import { useEditor } from "./app-provider";
-import EditorTitle from "./editor-title";
 
 // Import themes
-import "ace-builds/src-noconflict/theme-dracula";
 import "ace-builds/src-noconflict/theme-cobalt";
-import "ace-builds/src-noconflict/theme-vibrant_ink";
+import "ace-builds/src-noconflict/theme-dracula";
 import "ace-builds/src-noconflict/theme-monokai";
+import "ace-builds/src-noconflict/theme-nord_dark";
 import "ace-builds/src-noconflict/theme-tomorrow_night";
 import "ace-builds/src-noconflict/theme-tomorrow_night_blue";
-import "ace-builds/src-noconflict/theme-nord_dark";
 import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
+import "ace-builds/src-noconflict/theme-vibrant_ink";
 
 // Import languages
-import "ace-builds/src-noconflict/mode-javascript";
-import "ace-builds/src-noconflict/mode-html";
-import "ace-builds/src-noconflict/mode-css";
 import "ace-builds/src-noconflict/mode-c_cpp";
+import "ace-builds/src-noconflict/mode-css";
+import "ace-builds/src-noconflict/mode-html";
 import "ace-builds/src-noconflict/mode-java";
+import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/mode-python";
 
 // Additonal editor settings tools
@@ -28,32 +26,13 @@ type Props = {
 	language: string;
 	code: string;
 	setCode: React.Dispatch<React.SetStateAction<string>>;
-	forPreview?: boolean;
-	editorOpen?: boolean;
-	setEditorOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export default function Editor({
-	language,
-	code,
-	setCode,
-	forPreview = false,
-	editorOpen,
-	setEditorOpen,
-}: Props) {
+export default function Editor({ language, code, setCode }: Props) {
 	const { theme, fontFamily, fontSize, wrap, showLineNumbers } = useEditor();
 
 	return (
 		<div className="flex flex-col items-center grow h-full">
-			{/* Editor title */}
-			{!forPreview && editorOpen && setEditorOpen && (
-				<EditorTitle
-					language={language}
-					editorOpen={editorOpen}
-					setEditorOpen={setEditorOpen}
-				/>
-			)}
-
 			{/* Actual Editor */}
 			<AceEditor
 				mode={
