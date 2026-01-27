@@ -1,4 +1,5 @@
 import { useEditor } from "./app-provider";
+import { Button } from "./ui/button";
 
 const CompileButton = () => {
 	const { language, code, stdIn, setOutput, isSubmitting, setIsSubmitting } =
@@ -30,13 +31,9 @@ const CompileButton = () => {
 
 	return (
 		<section>
-			<button
-				// variant="contained"
-				// color="primary"
-				onClick={handleSubmission}
-			>
+			<Button onClick={handleSubmission}>
 				{isSubmitting ? "Compiling..." : "Run"}
-			</button>
+			</Button>
 		</section>
 	);
 };
