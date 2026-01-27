@@ -5,7 +5,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import SettingsIcon from "@material-ui/icons/Settings";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useEditor } from "../context/app-provider";
+import { useEditor } from "./app-provider";
 import CssFrameworks from "./css-frameworks";
 import SettingsTabs from "./settings-tabs";
 

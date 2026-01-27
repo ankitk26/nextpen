@@ -3,7 +3,7 @@
 import { Menu } from "@material-ui/core";
 import ViewAgendaIcon from "@material-ui/icons/ViewAgenda";
 import { useState } from "react";
-import { useEditor } from "../context/app-provider";
+import { useEditor } from "./app-provider";
 
 const OrientationMenu = () => {
 	const { setAlignment } = useEditor();

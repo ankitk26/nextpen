@@ -1,4 +1,4 @@
-import { useEditor } from "../context/app-provider";
+import { useEditor } from "./app-provider";
 
 const CompileButton = () => {
 	const { language, code, stdIn, setOutput, isSubmitting, setIsSubmitting } =

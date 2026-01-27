@@ -3,7 +3,7 @@ import Dropdown from "../components/dropdown";
 import FontSizeInput from "../components/font-size-input";
 import Preview from "../components/preview";
 import { fonts, themes } from "../constants/constants";
-import { useEditor } from "../context/app-provider";
+import { useEditor } from "../components/app-provider";
 
 export default function Settings() {
 	const {

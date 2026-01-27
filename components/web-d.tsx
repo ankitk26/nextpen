@@ -3,8 +3,8 @@
 import { makeStyles } from "@material-ui/core";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import { useEditor } from "../context/app-provider";
-import { getCssFrameworkLink } from "../utils/get-css-framework-link";
+import { useEditor } from "./app-provider";
+import { getCssFrameworkLink } from "../lib/get-css-framework-link";
 // import MonacoEditor from "./MonacoEditor";
 // import Editor from "./editor";
 

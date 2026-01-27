@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Header from "../components/header";
-import { AppProvider } from "../context/app-provider";
-import "../styles/app.css";
+import { AppProvider } from "../components/app-provider";
+import "./app.css";
 
 export const metadata: Metadata = {
 	title: "Home",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const Layout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<html lang="en">
-			<body>
+			<body className="dark">
 				<AppProvider>
 					<div className="flex flex-col w-full h-screen gap-0">
 						<Header />
