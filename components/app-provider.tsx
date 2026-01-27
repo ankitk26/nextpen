@@ -1,5 +1,6 @@
 "use client";
 
+import { SubmissionOutput } from "@/lib/types";
 import { createContext, useContext, useState } from "react";
 
 type AppState = {
@@ -21,8 +22,8 @@ type AppState = {
 	setCode: React.Dispatch<React.SetStateAction<string>>;
 	stdIn: string;
 	setStdIn: React.Dispatch<React.SetStateAction<string>>;
-	output: string;
-	setOutput: React.Dispatch<React.SetStateAction<string>>;
+	output: SubmissionOutput | null;
+	setOutput: React.Dispatch<React.SetStateAction<SubmissionOutput | null>>;
 	isSubmitting: boolean;
 	setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
 	headTags: string;
@@ -44,7 +45,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
 	const [code, setCode] = useState("");
 	const [stdIn, setStdIn] = useState("");
-	const [output, setOutput] = useState("");
+	const [output, setOutput] = useState<SubmissionOutput | null>(null);
 
 	const [isSubmitting, setIsSubmitting] = useState(false);
 

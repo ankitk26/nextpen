@@ -1,41 +1,47 @@
+import { IconLoader } from "@tabler/icons-react";
 import { useEditor } from "./app-provider";
 import { Button } from "./ui/button";
 
-const CompileButton = () => {
+export default function CompileButton() {
 	const { language, code, stdIn, setOutput, isSubmitting, setIsSubmitting } =
 		useEditor();
 
-	// Submit code to server
-	const handleSubmission = async () => {
+	async function handleSubmission() {
 		setIsSubmitting(true);
 
-		const body = JSON.stringify({
-			script: code,
-			stdin: stdIn,
-			language,
-		});
+		try {
+			const body = JSON.stringify({
+				script: code,
+				stdin: stdIn,
+				language,
+			});
 
-		const res = await fetch("/api/submission", {
-			method: "post",
-			body,
-			headers: {
-				"Content-type": "application/json",
-			},
-		});
+			const submissionResponse = await fetch("/api/submission", {
+				method: "post",
+				body,
+				headers: {
+					"content-type": "application/json",
+				},
+			});
 
-		const data = await res.json();
-		setOutput(data);
-
-		setIsSubmitting(false);
-	};
+			const submissionData = await submissionResponse.json();
+			setOutput({
+				output: submissionData.output,
+				cpuTime: submissionData.cpuTime,
+				memory: submissionData.memory,
+				isExecutionSuccess: submissionData.isExecutionSuccess,
+			});
+		} catch (error) {
+			setOutput(null);
+			console.log(error);
+		} finally {
+			setIsSubmitting(false);
+		}
+	}
 
 	return (
-		<section>
-			<Button onClick={handleSubmission}>
-				{isSubmitting ? "Compiling..." : "Run"}
-			</Button>
-		</section>
+		<Button onClick={handleSubmission}>
+			{isSubmitting ? <IconLoader className="animate-spin" /> : "Run"}
+		</Button>
 	);
-};
-
-export default CompileButton;
+}
