@@ -5,7 +5,7 @@ import Link from "next/link";
 import LanguageMenu from "../components/language-menu";
 import OrientationMenu from "../components/orientation-menu";
 import SettingsModal from "./settings-modal";
-import { useEditor } from "../context/app-provider";
+import { useEditor } from "./app-provider";
 
 const Header = () => {
 	const { language } = useEditor();

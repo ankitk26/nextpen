@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEditor } from "../context/app-provider";
+import { useEditor } from "./app-provider";
 import CompileButton from "./compile-button";
 // import MonacoEditor from "./MonacoEditor";
 

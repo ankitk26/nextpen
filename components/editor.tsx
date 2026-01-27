@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import AceEditor from "react-ace";
-import { useEditor } from "../context/app-provider";
+import { useEditor } from "./app-provider";
 import EditorTitle from "./editor-title";
 
 // Import themes
