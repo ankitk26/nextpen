@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { useEditor } from "./app-provider";
 import { IconMinus, IconPlus } from "@tabler/icons-react";
+import { useEditor } from "./app-provider";
 
 const FontSizeInput = () => {
 	const { fontSize, setFontSize } = useEditor();
 
 	return (
-		<div className="flex items-center w-48 border">
+		<div className="flex items-center w-48 border border-input">
 			<Button
 				variant="ghost"
 				size="icon"
@@ -15,7 +15,7 @@ const FontSizeInput = () => {
 				<IconMinus className="h-4 w-4" />
 			</Button>
 
-			<span className="grow text-sm">{fontSize}</span>
+			<span className="grow text-sm text-center">{fontSize}</span>
 
 			<Button
 				variant="ghost"

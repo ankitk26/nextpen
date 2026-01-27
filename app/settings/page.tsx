@@ -27,7 +27,7 @@ export default function Settings() {
 	} = useEditor();
 
 	return (
-		<div className="grid grid-cols-1 lg:grid-cols-2 w-full h-full gap-6">
+		<div className="grid grid-cols-1 lg:grid-cols-2 w-full min-h-150 max-h-screen gap-6">
 			{/* Preview Section */}
 			<div className="h-full">
 				<Preview />

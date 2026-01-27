@@ -18,22 +18,12 @@ export default function Preview() {
 				</TabsList>
 				<TabsContent value="html" className="w-full flex-1 mt-2">
 					<div className="w-full h-full">
-						<Editor
-							language="html"
-							code={html}
-							setCode={setHtml}
-							forPreview={true}
-						/>
+						<Editor language="html" code={html} setCode={setHtml} />
 					</div>
 				</TabsContent>
 				<TabsContent value="css" className="w-full flex-1 mt-2">
 					<div className="w-full h-full">
-						<Editor
-							language="css"
-							code={css}
-							setCode={setCss}
-							forPreview={true}
-						/>
+						<Editor language="css" code={css} setCode={setCss} />
 					</div>
 				</TabsContent>
 				<TabsContent value="js" className="w-full flex-1 mt-2">
@@ -42,7 +32,6 @@ export default function Preview() {
 							language="javascript"
 							code={js}
 							setCode={setJs}
-							forPreview={true}
 						/>
 					</div>
 				</TabsContent>
