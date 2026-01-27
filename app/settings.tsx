@@ -33,7 +33,7 @@ export default function Settings() {
 					Settings
 				</h1>
 
-				<form className="grid items-center grid-cols-2 gap-6 mt-8 text-textSecondary">
+				<div className="grid items-center grid-cols-2 gap-6 mt-8 text-textSecondary">
 					{/* Change theme of editor */}
 					<span>Theme</span>
 					<Dropdown data={themes} value={theme} handler={setTheme} />
@@ -65,7 +65,7 @@ export default function Settings() {
 						color="primary"
 						onChange={lineNumbersChange}
 					/>
-				</form>
+				</div>
 			</div>
 		</div>
 	);

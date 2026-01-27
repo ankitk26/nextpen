@@ -22,7 +22,7 @@ const EditorTitle = ({ language, editorOpen, setEditorOpen }: Props) => {
 			{/* Adjust title according to alignment and language */}
 			<h2
 				className={`text-white uppercase ${
-					alignment === "bottom" && "text-left"
+					alignment === "bottom" ? "text-left" : ""
 				} `}
 			>
 				{language === "cpp" ? "C++" : language === "c" ? "C" : language}

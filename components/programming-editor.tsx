@@ -35,7 +35,7 @@ const ProgrammingEditor = () => {
 						value={stdIn}
 						onChange={(e) => setStdIn(e.target.value)}
 						spellCheck={false}
-						autoCorrect="flase"
+						autoCorrect="false"
 					/>
 				</div>
 
