@@ -4,7 +4,7 @@ import { useState } from "react";
 import { cssPreview, htmlPreview, jsPreview } from "../constants/constants";
 // import { useEditor } from "../context/app-context";
 
-const Editor = dynamic(() => import("../components/Editor"), { ssr: false });
+const Editor = dynamic(() => import("../components/editor"), { ssr: false });
 
 // Individual panel
 const TabPanel = (props: any) => {

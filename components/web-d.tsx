@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useEditor } from "../context/app-provider";
 import { getCssFrameworkLink } from "../utils/get-css-framework-link";
 // import MonacoEditor from "./MonacoEditor";
-// import Editor from "./Editor";
+// import Editor from "./editor";
 
 const Editor = dynamic(() => import("./editor"), { ssr: false });
 
