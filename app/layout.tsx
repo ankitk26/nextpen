@@ -19,9 +19,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 		<html lang="en" className={geistMono.className}>
 			<body className="antialiased">
 				<AppProvider>
-					<div className="flex flex-col w-full h-screen gap-0">
+					<div className="flex w-full flex-col space-y-4">
 						<Header />
-						<main className="grow">{children}</main>
+						<main className="grow w-9/10 mx-auto">{children}</main>
 					</div>
 				</AppProvider>
 			</body>
