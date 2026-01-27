@@ -24,7 +24,7 @@ const CssFrameworks = () => {
 						checked={cssFramework === "none"}
 						onChange={handleChange}
 					/>
-					<label htmlFor="bootstrap">None</label>
+					<label htmlFor="none">None</label>
 				</div>
 
 				<div className="flex items-center gap-3">
