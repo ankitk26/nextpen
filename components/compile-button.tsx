@@ -40,7 +40,7 @@ export default function CompileButton() {
 	}
 
 	return (
-		<Button onClick={handleSubmission}>
+		<Button onClick={handleSubmission} className="w-full">
 			{isSubmitting ? <IconLoader className="animate-spin" /> : "Run"}
 		</Button>
 	);
