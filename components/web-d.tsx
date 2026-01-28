@@ -38,9 +38,9 @@ const WebD = () => {
 	}, [html, css, js]);
 
 	return (
-		<div className="h-full w-full flex space-x-4 overflow-hidden">
-			{/* Editors section - always on left */}
-			<div className="flex-1 flex flex-col min-w-0">
+		<div className="h-full w-full flex flex-col lg:flex-row gap-4 overflow-hidden">
+			{/* Editors section - top on mobile, left on desktop */}
+			<div className="h-[400px] lg:flex-1 lg:h-full flex flex-col min-w-0">
 				{/* Code editor tabs */}
 				<Tabs
 					defaultValue="html"
@@ -96,8 +96,8 @@ const WebD = () => {
 				</Tabs>
 			</div>
 
-			{/* Preview section - always on right */}
-			<div className="flex-1 flex flex-col bg-background min-w-0">
+			{/* Preview section - bottom on mobile, right on desktop */}
+			<div className="flex-1 lg:flex-1 flex flex-col bg-background min-w-0">
 				<div className="flex items-center gap-2 px-4 py-3 bg-muted border-b border-border shrink-0">
 					<IconEye className="size-4" />
 					<span className="text-sm font-medium">Preview</span>
