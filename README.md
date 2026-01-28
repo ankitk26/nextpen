@@ -1,34 +1,93 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# nextpen
 
-## Getting Started
+A simple online code editor where you can write and run code in a few programming languages, or play around with HTML, CSS, and JavaScript with a live preview.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### Programming Languages
+- C
+- C++
+- Java
+- Python
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### HTML/CSS Playground
+- Edit HTML, CSS, and JavaScript in separate tabs
+- See the result in a side-by-side preview
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Editor Settings
+- Syntax highlighting
+- Multiple color themes
+- Adjustable font size and font family
+- Toggle line numbers and code wrapping
+- Input and output panels for programs
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Tech Stack
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Next.js 16 App router
+- React 19
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+- Ace Editor (react-ace)
 
-## Learn More
+## Installation
 
-To learn more about Next.js, take a look at the following resources:
+### Prerequisites
+- Node.js 18+
+- Git
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Setup
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ankitk26/nextpen.git
+   cd nextpen
+   ```
 
-## Deploy on Vercel
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   bun install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Create a `.env.local` file:
+   ```bash
+   cp .env .env.local
+   ```
+   
+   Add your JDOODLE API credentials:
+   ```env
+   JDOODLE_CLIENT_ID=your_client_id
+   JDOODLE_CLIENT_SECRET=your_client_secret
+   ```
+   
+   Get your free API credentials at [jdoodle](https://www.jdoodle.com/integrate-online-ide-compiler-api-plugins)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+4. Run the development server:
+   ```bash
+   npm run dev
+   # or
+   bun run dev
+   ```
+
+5. Open your browser and navigate to `http://localhost:3000`
+
+## Usage
+
+### Programming Mode
+1. Select a language from the dropdown (C, C++, Java, or Python)
+2. Write your code in the editor
+3. Enter input if your program needs it
+4. Click "Run" to execute
+5. View the output
+
+### HTML/CSS Playground
+1. Select "Web Development" from the language dropdown
+2. Edit HTML, CSS, and JavaScript in their respective tabs
+3. See the result in the preview panel
+
+## Support
+
+- Issues: [GitHub Issues](https://github.com/ankitk26/nextpen/issues)
+- Repository: [GitHub](https://github.com/ankitk26/nextpen)
