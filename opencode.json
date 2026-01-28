@@ -1,0 +1,19 @@
+{
+	"$schema": "https://opencode.ai/config.json",
+	"permission": {
+		"bash": {
+			"*": "ask",
+			"git *": "ask",
+			"npm *": "ask",
+			"rm *": "deny",
+			"grep *": "allow"
+		}
+	},
+	"formatter": {
+		"oxfmt": {
+			"environment": {
+				"OPENCODE_EXPERIMENTAL_OXFMT": "true"
+			}
+		}
+	}
+}
