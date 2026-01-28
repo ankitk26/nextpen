@@ -7,8 +7,8 @@ import { Button } from "./ui/button";
 
 export default function Header() {
 	return (
-		<nav className="py-2 shadow-md">
-			<header className="w-9/10 flex items-center justify-between mx-auto">
+		<nav className="py-2 px-4 shadow-md shrink-0">
+			<header className="w-full flex items-center justify-between">
 				{/* Logo */}
 				<Link href="/" className="text-lg font-medium">
 					nextpen

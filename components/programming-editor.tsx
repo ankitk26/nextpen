@@ -10,7 +10,7 @@ export default function ProgrammingEditor() {
 	const { code, setCode, language } = useEditor();
 
 	return (
-		<div className="flex flex-col lg:flex-row gap-4 h-[calc(100vh-8rem)]">
+		<div className="flex flex-col lg:flex-row gap-4 h-full">
 			{/* Left side - Code Editor */}
 			<section className="flex-1 h-full min-h-[400px]">
 				<Editor language={language} code={code} setCode={setCode} />

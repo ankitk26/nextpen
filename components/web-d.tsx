@@ -38,7 +38,7 @@ const WebD = () => {
 	}, [html, css, js]);
 
 	return (
-		<div className="h-[calc(100vh-5rem)] w-full flex space-x-4 overflow-hidden">
+		<div className="h-full w-full flex space-x-4 overflow-hidden">
 			{/* Editors section - always on left */}
 			<div className="flex-1 flex flex-col min-w-0">
 				{/* Code editor tabs */}
