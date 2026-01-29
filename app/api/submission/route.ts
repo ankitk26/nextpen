@@ -1,5 +1,5 @@
-import { supportedLanguages } from "@/lib/supported-languages";
-import { JdoodleLanguage } from "@/lib/types";
+import { compilerLanguages } from "@/lib/supported-languages";
+import { CompilerLanguage } from "@/lib/types";
 import { NextRequest } from "next/server";
 
 export async function POST(request: NextRequest) {
@@ -7,7 +7,7 @@ export async function POST(request: NextRequest) {
 		const body = await request.json();
 
 		const { value: languageCode, jdoodleVersionIndex } =
-			supportedLanguages[body.language as JdoodleLanguage];
+			compilerLanguages[body.language as CompilerLanguage];
 
 		const inputParams = {
 			...body,

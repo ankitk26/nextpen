@@ -1,4 +1,4 @@
-export const supportedLanguages = {
+export const compilerLanguages = {
 	cpp17: {
 		value: "cpp17",
 		label: "C++",
@@ -59,5 +59,14 @@ export const supportedLanguages = {
 		jdoodleVersionIndex: "5",
 		aceEditorMode: "elixir",
 	},
-	webd: { value: "webd", label: "Web Development" },
 } as const;
+
+export const editorOnlyLanguages = {
+	html: { aceEditorMode: "html" },
+	css: { aceEditorMode: "css" },
+};
+
+export const supportedLanguages = {
+	...compilerLanguages,
+	...editorOnlyLanguages,
+};
