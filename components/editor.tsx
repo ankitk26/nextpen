@@ -39,8 +39,6 @@ type Props = {
 export default function Editor({ language, code, setCode }: Props) {
 	const { theme, fontFamily, fontSize, wrap, showLineNumbers } = useEditor();
 
-	console.log(language);
-
 	return (
 		<div className="flex flex-col items-center grow h-full">
 			{/* Actual Editor */}
