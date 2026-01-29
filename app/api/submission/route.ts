@@ -1,16 +1,18 @@
-import { getLanguage } from "@/lib/get-language";
+import { supportedLanguages } from "@/lib/supported-languages";
+import { JdoodleLanguage } from "@/lib/types";
 import { NextRequest } from "next/server";
 
 export async function POST(request: NextRequest) {
 	try {
 		const body = await request.json();
 
-		const [languageCode, versionIndex] = getLanguage(body.language);
+		const { value: languageCode, jdoodleVersionIndex } =
+			supportedLanguages[body.language as JdoodleLanguage];
 
 		const inputParams = {
 			...body,
 			language: languageCode,
-			versionIndex,
+			versionIndex: jdoodleVersionIndex,
 			clientId: process.env.JDOODLE_CLIENT_ID,
 			clientSecret: process.env.JDOODLE_CLIENT_SECRET,
 		};
@@ -22,8 +24,6 @@ export async function POST(request: NextRequest) {
 		});
 
 		const data = await response.json();
-
-		console.log(data);
 
 		return Response.json({
 			output: data.output,
