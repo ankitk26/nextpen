@@ -1,11 +1,3 @@
-export const languages = [
-	{ value: "cpp", label: "C++" },
-	{ value: "c", label: "C" },
-	{ value: "java", label: "Java" },
-	{ value: "python", label: "Python" },
-	{ value: "webd", label: "Web Development" },
-];
-
 const themesList = [
 	"dracula",
 	"cobalt",
@@ -15,6 +7,7 @@ const themesList = [
 	"nord_dark",
 	"tomorrow_night_eighties",
 	"vibrant_ink",
+	"one_dark",
 ];
 export const themes = themesList.map((theme) => {
 	const label = theme.split("_").join(" ");

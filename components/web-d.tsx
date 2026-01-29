@@ -87,7 +87,7 @@ const WebD = () => {
 							className="h-full m-0 p-0 overflow-hidden"
 						>
 							<Editor
-								language="javascript"
+								language="nodejs"
 								code={js}
 								setCode={setJs}
 							/>

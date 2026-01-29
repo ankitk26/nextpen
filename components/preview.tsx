@@ -28,11 +28,7 @@ export default function Preview() {
 				</TabsContent>
 				<TabsContent value="js" className="w-full flex-1 mt-2">
 					<div className="w-full h-full">
-						<Editor
-							language="javascript"
-							code={js}
-							setCode={setJs}
-						/>
+						<Editor language="nodejs" code={js} setCode={setJs} />
 					</div>
 				</TabsContent>
 			</Tabs>

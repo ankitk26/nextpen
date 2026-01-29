@@ -35,13 +35,13 @@ type AppState = {
 export const AppContext = createContext<AppState>({} as AppState);
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
-	const [theme, setTheme] = useState("tomorrow_night_eighties");
-	const [fontFamily, setFontFamily] = useState("Consolas");
-	const [fontSize, setFontSize] = useState(15);
+	const [theme, setTheme] = useState("one_dark");
+	const [fontFamily, setFontFamily] = useState("cascadia code");
+	const [fontSize, setFontSize] = useState(14);
 	const [wrap, setWrap] = useState(true);
 	const [showLineNumbers, setShowLineNumbers] = useState(true);
 	const [alignment, setAlignment] = useState("right");
-	const [language, setLanguage] = useState("cpp");
+	const [language, setLanguage] = useState("cpp17");
 
 	const [code, setCode] = useState("");
 	const [stdIn, setStdIn] = useState("");

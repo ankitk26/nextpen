@@ -1,6 +1,6 @@
 "use client";
 
-import { languages } from "@/lib/constants";
+import { supportedLanguages } from "@/lib/supported-languages";
 import { useEditor } from "./app-provider";
 import {
 	Select,
@@ -14,18 +14,22 @@ import {
 export default function LanguageMenu() {
 	const { setLanguage } = useEditor();
 
+	const supportedLanguagesList = Object.values(supportedLanguages).map(
+		({ value, label }) => ({ value, label }),
+	);
+
 	return (
 		<Select
-			items={languages}
+			items={supportedLanguagesList}
 			onValueChange={(val) => setLanguage(val as string)}
-			defaultValue="cpp"
+			defaultValue="cpp17"
 		>
 			<SelectTrigger className="w-48">
 				<SelectValue />
 			</SelectTrigger>
 			<SelectContent>
 				<SelectGroup>
-					{languages.map((language) => (
+					{supportedLanguagesList.map((language) => (
 						<SelectItem key={language.value} value={language.value}>
 							{language.label}
 						</SelectItem>
