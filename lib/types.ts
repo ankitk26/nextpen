@@ -1,4 +1,8 @@
-import { supportedLanguages } from "./supported-languages";
+import {
+	compilerLanguages,
+	editorOnlyLanguages,
+	supportedLanguages,
+} from "./supported-languages";
 
 export type SubmissionOutput = {
 	output: string;
@@ -7,4 +11,6 @@ export type SubmissionOutput = {
 	isExecutionSuccess: boolean;
 };
 
-export type JdoodleLanguage = Exclude<keyof typeof supportedLanguages, "webd">; // "cpp17"|"c"|...
+export type CompilerLanguage = keyof typeof compilerLanguages;
+export type EditorOnlyLanguage = keyof typeof editorOnlyLanguages;
+export type SupportedLanguage = keyof typeof supportedLanguages;

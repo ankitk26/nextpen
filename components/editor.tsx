@@ -6,29 +6,29 @@ import "ace-builds/src-noconflict/theme-cobalt";
 import "ace-builds/src-noconflict/theme-dracula";
 import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/theme-nord_dark";
+import "ace-builds/src-noconflict/theme-one_dark";
 import "ace-builds/src-noconflict/theme-tomorrow_night";
 import "ace-builds/src-noconflict/theme-tomorrow_night_blue";
 import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
 import "ace-builds/src-noconflict/theme-vibrant_ink";
-import "ace-builds/src-noconflict/theme-one_dark";
 
 // Import languages
 import "ace-builds/src-noconflict/mode-c_cpp";
+import "ace-builds/src-noconflict/mode-csharp";
 import "ace-builds/src-noconflict/mode-css";
+import "ace-builds/src-noconflict/mode-elixir";
+import "ace-builds/src-noconflict/mode-golang";
 import "ace-builds/src-noconflict/mode-html";
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/mode-rust";
-import "ace-builds/src-noconflict/mode-golang";
 import "ace-builds/src-noconflict/mode-typescript";
-import "ace-builds/src-noconflict/mode-csharp";
-import "ace-builds/src-noconflict/mode-elixir";
 
 // Additonal editor settings tools
-import "ace-builds/src-noconflict/ext-language_tools";
 import { supportedLanguages } from "@/lib/supported-languages";
-import { JdoodleLanguage } from "@/lib/types";
+import { SupportedLanguage } from "@/lib/types";
+import "ace-builds/src-noconflict/ext-language_tools";
 
 type Props = {
 	language: string;
@@ -46,10 +46,8 @@ export default function Editor({ language, code, setCode }: Props) {
 			{/* Actual Editor */}
 			<AceEditor
 				mode={
-					language === "html" || language === "css"
-						? language
-						: supportedLanguages[language as JdoodleLanguage]
-								.aceEditorMode
+					supportedLanguages[language as SupportedLanguage]
+						.aceEditorMode
 				}
 				theme={theme}
 				fontSize={fontSize}
