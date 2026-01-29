@@ -1,6 +1,7 @@
 "use client";
 
 import { SubmissionOutput } from "@/lib/types";
+import { supportedLanguages } from "@/lib/supported-languages";
 import { createContext, useContext, useState } from "react";
 
 type AppState = {
@@ -18,6 +19,7 @@ type AppState = {
 	setAlignment: React.Dispatch<React.SetStateAction<string>>;
 	language: string;
 	setLanguage: React.Dispatch<React.SetStateAction<string>>;
+	getBoilerplateCode: (lang: string) => string;
 	code: string;
 	setCode: React.Dispatch<React.SetStateAction<string>>;
 	stdIn: string;
@@ -43,7 +45,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 	const [alignment, setAlignment] = useState("right");
 	const [language, setLanguage] = useState("cpp17");
 
-	const [code, setCode] = useState("");
+	const [code, setCode] = useState(supportedLanguages.cpp17.boilerplate as string);
 	const [stdIn, setStdIn] = useState("");
 	const [output, setOutput] = useState<SubmissionOutput | null>(null);
 
@@ -51,6 +53,10 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
 	const [headTags, setHeadTags] = useState("");
 	const [cssFramework, setCssFramework] = useState("none");
+
+	const getBoilerplateCode = (lang: string) => {
+		return supportedLanguages[lang as keyof typeof supportedLanguages]?.boilerplate as string;
+	};
 
 	return (
 		<AppContext.Provider
@@ -81,6 +87,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 				setHeadTags,
 				cssFramework,
 				setCssFramework,
+				getBoilerplateCode,
 			}}
 		>
 			{children}

@@ -12,16 +12,25 @@ import {
 } from "./ui/select";
 
 export default function LanguageMenu() {
-	const { setLanguage } = useEditor();
+	const { setLanguage, setCode, getBoilerplateCode } = useEditor();
 
 	const compilerLanguagesList = Object.values(compilerLanguages).map(
 		({ value, label }) => ({ value, label }),
 	);
 
+	const handleLanguageChange = (val: string | null) => {
+		if (!val) return;
+		setLanguage(val);
+		const boilerplate = getBoilerplateCode(val);
+		if (boilerplate) {
+			setCode(boilerplate);
+		}
+	};
+
 	return (
 		<Select
 			items={compilerLanguagesList}
-			onValueChange={(val) => setLanguage(val as string)}
+			onValueChange={handleLanguageChange}
 			defaultValue="cpp17"
 		>
 			<SelectTrigger className="w-48">
