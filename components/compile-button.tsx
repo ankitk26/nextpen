@@ -1,47 +1,29 @@
 import { IconLoader } from "@tabler/icons-react";
-import { useEditor } from "./app-provider";
 import { Button } from "./ui/button";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
-export default function CompileButton() {
-	const { language, code, stdIn, setOutput, isSubmitting, setIsSubmitting } =
-		useEditor();
+type Props = {
+	onRun: () => void;
+	isSubmitting: boolean;
+};
 
-	async function handleSubmission() {
-		setIsSubmitting(true);
-
-		try {
-			const body = JSON.stringify({
-				script: code,
-				stdin: stdIn,
-				language,
-			});
-
-			const submissionResponse = await fetch("/api/submission", {
-				method: "post",
-				body,
-				headers: {
-					"content-type": "application/json",
-				},
-			});
-
-			const submissionData = await submissionResponse.json();
-			setOutput({
-				output: submissionData.output,
-				cpuTime: submissionData.cpuTime,
-				memory: submissionData.memory,
-				isExecutionSuccess: submissionData.isExecutionSuccess,
-			});
-		} catch (error) {
-			setOutput(null);
-			console.log(error);
-		} finally {
-			setIsSubmitting(false);
-		}
-	}
-
+export default function CompileButton({ onRun, isSubmitting }: Props) {
 	return (
-		<Button onClick={handleSubmission} className="w-full">
-			{isSubmitting ? <IconLoader className="animate-spin" /> : "Run"}
-		</Button>
+		<Tooltip>
+			<TooltipTrigger
+				render={
+					<Button
+						onClick={onRun}
+						className="w-full"
+						disabled={isSubmitting}
+					/>
+				}
+			>
+				{isSubmitting ? <IconLoader className="animate-spin" /> : "Run"}
+			</TooltipTrigger>
+			<TooltipContent side="top">
+				<p>Run code (Ctrl+R)</p>
+			</TooltipContent>
+		</Tooltip>
 	);
 }

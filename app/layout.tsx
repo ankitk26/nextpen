@@ -1,5 +1,6 @@
 import { AppProvider } from "@/components/app-provider";
 import Header from "@/components/header";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { Metadata } from "next";
 import { Geist_Mono } from "next/font/google";
 import "./app.css";
@@ -18,14 +19,16 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<html lang="en" className={geistMono.className}>
 			<body className="antialiased">
-				<AppProvider>
-					<div className="flex w-full flex-col h-screen overflow-hidden">
-						<Header />
-						<main className="flex-1 p-4 w-full overflow-y-auto lg:overflow-hidden">
-							{children}
-						</main>
-					</div>
-				</AppProvider>
+				<TooltipProvider>
+					<AppProvider>
+						<div className="flex w-full flex-col h-screen overflow-hidden">
+							<Header />
+							<main className="flex-1 p-4 w-full overflow-y-auto lg:overflow-hidden">
+								{children}
+							</main>
+						</div>
+					</AppProvider>
+				</TooltipProvider>
 			</body>
 		</html>
 	);
