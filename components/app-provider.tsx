@@ -45,7 +45,9 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 	const [alignment, setAlignment] = useState("right");
 	const [language, setLanguage] = useState("cpp17");
 
-	const [code, setCode] = useState(supportedLanguages.cpp17.boilerplate as string);
+	const [code, setCode] = useState(
+		supportedLanguages.cpp17.boilerplate as string,
+	);
 	const [stdIn, setStdIn] = useState("");
 	const [output, setOutput] = useState<SubmissionOutput | null>(null);
 
@@ -55,7 +57,8 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 	const [cssFramework, setCssFramework] = useState("none");
 
 	const getBoilerplateCode = (lang: string) => {
-		return supportedLanguages[lang as keyof typeof supportedLanguages]?.boilerplate as string;
+		return supportedLanguages[lang as keyof typeof supportedLanguages]
+			?.boilerplate as string;
 	};
 
 	return (

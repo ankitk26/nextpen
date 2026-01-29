@@ -4,21 +4,24 @@ export const compilerLanguages = {
 		label: "C++",
 		jdoodleVersionIndex: "2",
 		aceEditorMode: "c_cpp",
-		boilerplate: '#include <iostream>\n\nint main() {\n    std::cout << "coding with C++" << std::endl;\n    return 0;\n}',
+		boilerplate:
+			'#include <iostream>\n\nint main() {\n    std::cout << "coding with C++" << std::endl;\n    return 0;\n}',
 	},
 	c: {
 		value: "c",
 		label: "C",
 		jdoodleVersionIndex: "6",
 		aceEditorMode: "c_cpp",
-		boilerplate: '#include <stdio.h>\n\nint main() {\n    printf("coding with C\\n");\n    return 0;\n}',
+		boilerplate:
+			'#include <stdio.h>\n\nint main() {\n    printf("coding with C\\n");\n    return 0;\n}',
 	},
 	java: {
 		value: "java",
 		label: "Java",
 		jdoodleVersionIndex: "5",
 		aceEditorMode: "java",
-		boilerplate: 'public class Main {\n    public static void main(String[] args) {\n        System.out.println("coding with Java");\n    }\n}',
+		boilerplate:
+			'public class Main {\n    public static void main(String[] args) {\n        System.out.println("coding with Java");\n    }\n}',
 	},
 	python3: {
 		value: "python3",
@@ -39,7 +42,8 @@ export const compilerLanguages = {
 		label: "Go",
 		jdoodleVersionIndex: "5",
 		aceEditorMode: "golang",
-		boilerplate: 'package main\n\nimport "fmt"\n\nfunc main() {\n    fmt.Println("coding with Go")\n}',
+		boilerplate:
+			'package main\n\nimport "fmt"\n\nfunc main() {\n    fmt.Println("coding with Go")\n}',
 	},
 	nodejs: {
 		value: "nodejs",
@@ -60,7 +64,8 @@ export const compilerLanguages = {
 		label: "C#",
 		jdoodleVersionIndex: "5",
 		aceEditorMode: "csharp",
-		boilerplate: 'using System;\n\nclass Program {\n    static void Main() {\n        Console.WriteLine("coding with C#");\n    }\n}',
+		boilerplate:
+			'using System;\n\nclass Program {\n    static void Main() {\n        Console.WriteLine("coding with C#");\n    }\n}',
 	},
 	elixir: {
 		value: "elixir",

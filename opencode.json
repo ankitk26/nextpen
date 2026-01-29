@@ -5,15 +5,14 @@
 			"*": "ask",
 			"git *": "ask",
 			"npm *": "ask",
+			"nr *": "ask",
 			"rm *": "deny",
 			"grep *": "allow"
 		}
 	},
 	"formatter": {
-		"oxfmt": {
-			"environment": {
-				"OPENCODE_EXPERIMENTAL_OXFMT": "true"
-			}
+		"command": {
+			"command": ["nr fmt"]
 		}
 	}
 }
